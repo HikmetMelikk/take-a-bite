@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "222415830271",
+    "project_id": "take-a-bite-10236",
+    "storage_bucket": "take-a-bite-10236.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222415830271:android:4b164c831b7bfd288420ca",
+        "android_client_info": {
+          "package_name": "com.example.take_a_bite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdpcboMc-UiGzwJzpwBgXgRv3rnLJsMSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
