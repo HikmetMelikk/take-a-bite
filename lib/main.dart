@@ -6,11 +6,11 @@ import 'package:take_a_bite/product/router/app_router.dart';
 
 Future<void> main() async {
   AppInitialize().setupApplication();
-  runApp(const _MyApp());
+  runApp(const MyApp());
 }
 
-class _MyApp extends StatelessWidget {
-  const _MyApp();
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
