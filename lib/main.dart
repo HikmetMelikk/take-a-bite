@@ -1,20 +1,16 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:take_a_bite/firebase_options.dart';
+import 'package:take_a_bite/product/init/app_initialize.dart';
 import 'package:take_a_bite/product/init/theme/app_dark_theme.dart';
 import 'package:take_a_bite/product/init/theme/app_light_theme.dart';
 import 'package:take_a_bite/product/router/app_router.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  runApp(const MyApp());
+  AppInitialize().setupApplication();
+  runApp(const _MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class _MyApp extends StatelessWidget {
+  const _MyApp();
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
