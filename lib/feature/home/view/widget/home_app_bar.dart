@@ -5,7 +5,14 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AppBar(
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.shopping_cart_outlined),
+        )
+      ],
+    );
   }
 
   @override

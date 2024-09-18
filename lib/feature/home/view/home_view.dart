@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 part 'widget/home_app_bar.dart';
 
 class HomeView extends StatefulWidget {
@@ -11,9 +12,25 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: _HomeAppBar(),
-      body: Placeholder(),
+    return Scaffold(
+      appBar: const _HomeAppBar(),
+      body: Column(
+        children: [
+          Text(
+            "Delicious Food For You",
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Search",
+              prefixIcon: const Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
