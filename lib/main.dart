@@ -7,6 +7,8 @@ import 'package:take_a_bite/product/init/theme/app_light_theme.dart';
 import 'package:take_a_bite/product/router/app_router.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   AppInitialize().setupApplication();
   runApp(AppLocalization(child: const MyApp()));
 }
@@ -16,9 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      locale: context.locale,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
-      locale: context.locale,
       title: 'Take A Bite',
       debugShowCheckedModeBanner: false,
       theme: AppLightTheme().themeData,
