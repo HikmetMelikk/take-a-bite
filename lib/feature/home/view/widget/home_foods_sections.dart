@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomeFoodsSections extends StatefulWidget {
-  const HomeFoodsSections({super.key});
+class HomeFoodsSection extends StatefulWidget {
+  const HomeFoodsSection({super.key});
 
   @override
-  State<HomeFoodsSections> createState() => _HomeFoodsSectionsState();
+  State<HomeFoodsSection> createState() => _HomeFoodsSectionsState();
 }
 
-class _HomeFoodsSectionsState extends State<HomeFoodsSections> {
+class _HomeFoodsSectionsState extends State<HomeFoodsSection> {
   final PageController _pageController = PageController(viewportFraction: 0.8);
 
   @override
