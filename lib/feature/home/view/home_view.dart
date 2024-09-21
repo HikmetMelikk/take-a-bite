@@ -10,6 +10,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final PageController _pageController = PageController(viewportFraction: 0.8);
   int selectedIndex = 0;
   List<String> categories = ["Foods", "Drinks", "Snacks", "Sauces"];
   @override
@@ -92,6 +93,7 @@ class _HomeViewState extends State<HomeView> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.45,
               child: PageView.builder(
+                controller: _pageController,
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return Stack(
