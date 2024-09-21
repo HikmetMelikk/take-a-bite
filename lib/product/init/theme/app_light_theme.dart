@@ -7,5 +7,16 @@ class AppLightTheme implements AppThemeManager {
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
         colorScheme: AppColorScheme.lightTheme,
+        inputDecorationTheme: InputDecorationTheme(
+          filled: true,
+          fillColor: const Color(0xFFefeeee),
+          disabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide.none,
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+        ),
       );
 }
