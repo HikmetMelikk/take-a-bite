@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:take_a_bite/feature/home/view/widget/home_filter.dart';
 import 'package:take_a_bite/feature/home/view/widget/home_foods_sections.dart';
 import 'package:take_a_bite/feature/home/view/widget/home_view_text.dart';
+import 'package:take_a_bite/product/utils/widgets/spacing.dart';
 
 part 'widget/home_app_bar.dart';
 
@@ -24,9 +25,7 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               HomeViewText(text: "Delicious\nFood For You"),
-              SizedBox(
-                height: 20,
-              ),
+              SpacingBox(),
               TextField(
                 decoration: InputDecoration(
                   hintText: "Search",
@@ -34,9 +33,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
               HomeFilter(),
-              SizedBox(
-                height: 20,
-              ),
+              SpacingBox(),
               HomeFoodsSections()
             ],
           ),
