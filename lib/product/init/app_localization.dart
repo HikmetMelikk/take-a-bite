@@ -9,7 +9,7 @@ final class AppLocalization extends EasyLocalization {
 
   static final List<Locale> _supportedLocales = [Locales.tr.locale, Locales.en.locale];
 
-  static const String _translationsPath = 'asset/translations';
+  static const String _translationsPath = 'assets/translations';
 
   static Future<void> updateLanguage({required BuildContext context, required Locales value}) =>
       context.setLocale(value.locale);

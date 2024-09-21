@@ -3,7 +3,7 @@ import 'package:take_a_bite/feature/authentication/auth_view.dart';
 import 'package:take_a_bite/feature/home/view/home_view.dart';
 
 final GoRouter appRouter = GoRouter(
-  initialLocation: "/auth",
+  initialLocation: "/home",
   routes: [
     GoRoute(
       path: '/auth',
