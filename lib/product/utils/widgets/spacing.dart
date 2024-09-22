@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SpacingBox extends StatelessWidget {
-  const SpacingBox({super.key});
+  final double height;
+  const SpacingBox({
+    super.key,
+    this.height = 20,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 20,
+    return SizedBox(
+      height: height,
     );
   }
 }
