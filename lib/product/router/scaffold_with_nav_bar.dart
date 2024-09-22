@@ -14,20 +14,16 @@ class ScaffoldWithNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(navigationShell.currentIndex == 0
-              ? 'Home'
-              : navigationShell.currentIndex == 1
-                  ? 'Favorites'
-                  : 'Profile'),
-          centerTitle: true,
-          actions: [
-            navigationShell.currentIndex == 0
-                ? IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.shopping_cart_rounded),
-                  )
-                : const SizedBox()
-          ]),
+        title: Text(_getAppBarTitle(navigationShell.currentIndex)),
+        centerTitle: true,
+        actions: [
+          if (navigationShell.currentIndex == 0)
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.shopping_cart_rounded),
+            )
+        ],
+      ),
       drawer: const CustomDrawer(),
       body: navigationShell,
       bottomNavigationBar: BottomNavigationBar(
@@ -46,6 +42,19 @@ class ScaffoldWithNavBar extends StatelessWidget {
         onTap: (int index) => _onTap(context, index),
       ),
     );
+  }
+
+  String _getAppBarTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Home';
+      case 1:
+        return 'Favorites';
+      case 2:
+        return 'Profile';
+      default:
+        return '';
+    }
   }
 
   void _onTap(BuildContext context, int index) {
