@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FavoritesView extends StatefulWidget {
+final class FavoritesView extends StatefulWidget {
   final String label;
   const FavoritesView({super.key, required this.label});
 
@@ -8,7 +8,7 @@ class FavoritesView extends StatefulWidget {
   State<FavoritesView> createState() => _FavoritesViewState();
 }
 
-class _FavoritesViewState extends State<FavoritesView> {
+final class _FavoritesViewState extends State<FavoritesView> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

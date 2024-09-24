@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:take_a_bite/feature/onboarding/onboarding_items.dart';
+import 'package:take_a_bite/feature/onboarding/view/widget/onboarding_bottom_indicator.dart';
+import 'package:take_a_bite/feature/onboarding/view/widget/onboarding_take_a_bite_button.dart';
 import 'package:take_a_bite/product/utils/widgets/spacing.dart';
 
-class OnboardingView extends StatefulWidget {
+final class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
 
   @override
   State<OnboardingView> createState() => _OnboardingViewState();
 }
 
-class _OnboardingViewState extends State<OnboardingView> {
+final class _OnboardingViewState extends State<OnboardingView> {
   final _onboardingItems = OnboardingItems();
   final _onboardingPageController = PageController();
   bool isLastPage = false;
@@ -20,38 +19,12 @@ class _OnboardingViewState extends State<OnboardingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomSheet: Container(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
         decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface),
         child: isLastPage
-            ? takeABiteButton(context)
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TextButton(
-                      onPressed: () => _onboardingPageController.jumpToPage(_onboardingItems.items.length - 1),
-                      child: const Text("Skip")),
-                  SmoothPageIndicator(
-                    controller: _onboardingPageController,
-                    count: _onboardingItems.items.length,
-                    onDotClicked: (index) => _onboardingPageController.animateToPage(
-                      index,
-                      curve: Curves.easeIn,
-                      duration: const Duration(milliseconds: 300),
-                    ),
-                    effect: WormEffect(
-                      dotWidth: 10,
-                      dotHeight: 10,
-                      activeDotColor: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () => _onboardingPageController.nextPage(
-                            curve: Curves.easeIn,
-                            duration: const Duration(milliseconds: 300),
-                          ),
-                      child: const Text("Next")),
-                ],
-              ),
+            ? const TakeABiteButton()
+            : OnboardingBottomIndicator(
+                onboardingPageController: _onboardingPageController, onboardingItems: _onboardingItems),
       ),
       body: PageView.builder(
         onPageChanged: (index) => setState(() => isLastPage = _onboardingItems.items.length - 1 == index),
@@ -59,7 +32,7 @@ class _OnboardingViewState extends State<OnboardingView> {
         controller: _onboardingPageController,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -86,16 +59,4 @@ class _OnboardingViewState extends State<OnboardingView> {
       ),
     );
   }
-}
-
-Widget takeABiteButton(BuildContext context) {
-  return ElevatedButton(
-    onPressed: () async {
-      final isOnboardingShow = await SharedPreferences.getInstance();
-      isOnboardingShow.setBool("isOnboardingShow", true);
-      if (!context.mounted) return;
-      context.goNamed("auth");
-    },
-    child: const Text("Take a bite"),
-  );
 }

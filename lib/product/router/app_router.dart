@@ -13,11 +13,11 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>(de
 // final GlobalKey<NavigatorState> _favoritesNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'favorites');
 // final GlobalKey<NavigatorState> _profileNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profile');
 
-class AppRouter {
+final class AppRouter {
   final bool isOnboardingShow;
   AppRouter({required this.isOnboardingShow});
   late final GoRouter appRouter = GoRouter(
-    initialLocation: isOnboardingShow ? '/auth' : '/onboarding',
+    initialLocation: isOnboardingShow ? '/home' : '/onboarding',
     navigatorKey: _rootNavigatorKey,
     routes: [
       GoRoute(

@@ -2,9 +2,7 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-part './view/widget/auth_app_bar.dart';
-
-class AuthView extends StatelessWidget {
+final class AuthView extends StatelessWidget {
   const AuthView({super.key});
 
   @override
@@ -12,7 +10,6 @@ class AuthView extends StatelessWidget {
     final authProviders = [EmailAuthProvider()];
 
     return Scaffold(
-      appBar: const _AuthAppBar(),
       body: SignInScreen(
         providers: authProviders,
         actions: [

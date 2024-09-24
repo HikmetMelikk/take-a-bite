@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:take_a_bite/feature/home/view/widget/custom_drawer.dart';
+import 'package:take_a_bite/product/router/custom_drawer.dart';
 
-class ScaffoldWithNavBar extends StatelessWidget {
+final class ScaffoldWithNavBar extends StatelessWidget {
   const ScaffoldWithNavBar({
     required this.navigationShell,
     Key? key,
