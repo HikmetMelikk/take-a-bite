@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HomeViewText extends StatelessWidget {
+final class HomeViewText extends StatelessWidget {
   final String text;
 
   const HomeViewText({super.key, required this.text});

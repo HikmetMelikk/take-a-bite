@@ -1,6 +1,6 @@
 import 'package:take_a_bite/feature/onboarding/model/onboarding_model.dart';
 
-class OnboardingItems {
+final class OnboardingItems {
   List<OnboardingModel> items = [
     OnboardingModel(
       title: 'Choose Your Favorite Food',

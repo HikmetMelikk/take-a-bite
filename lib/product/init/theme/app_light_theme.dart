@@ -7,15 +7,24 @@ class AppLightTheme implements AppThemeManager {
   ThemeData get themeData => ThemeData(
         useMaterial3: true,
         colorScheme: AppColorScheme.lightTheme,
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: const Color(0xFFefeeee),
-          disabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none,
+        elevatedButtonTheme: elevatedButtonThemeData,
+      );
+
+  @override
+  ElevatedButtonThemeData get elevatedButtonThemeData => ElevatedButtonThemeData(
+        style: ButtonStyle(
+          minimumSize: WidgetStateProperty.all(const Size(350, 60)),
+          foregroundColor: WidgetStateProperty.all(
+            AppColorScheme.lightTheme.onPrimary,
           ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.circular(30.0),
+          textStyle: WidgetStateProperty.all(
+            const TextStyle(
+              fontSize: 16,
+            ),
+          ),
+          backgroundColor: WidgetStateProperty.all(AppColorScheme.lightTheme.primary),
+          shape: WidgetStateProperty.all(
+            const StadiumBorder(),
           ),
         ),
       );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomeFilter extends StatefulWidget {
+final class HomeFilter extends StatefulWidget {
   const HomeFilter({super.key});
 
   @override
   State<HomeFilter> createState() => _HomeFilterState();
 }
 
-class _HomeFilterState extends State<HomeFilter> {
+final class _HomeFilterState extends State<HomeFilter> {
   int selectedIndex = 0;
   List<String> categories = ["Foods", "Drinks", "Snacks", "Sauces"];
   @override
@@ -31,7 +31,7 @@ class _HomeFilterState extends State<HomeFilter> {
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                  color: selectedIndex == index ? Colors.orange : Colors.transparent,
+                  color: selectedIndex == index ? Theme.of(context).colorScheme.primary : Colors.transparent,
                   width: 2.0,
                 ),
               ),
@@ -39,7 +39,9 @@ class _HomeFilterState extends State<HomeFilter> {
             child: Text(
               categories[index],
               style: TextStyle(
-                color: selectedIndex == index ? Colors.orange : Colors.grey,
+                color: selectedIndex == index
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
                 fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal,
               ),
             ),

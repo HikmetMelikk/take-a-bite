@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SpacingBox extends StatelessWidget {
+final class SpacingBox extends StatelessWidget {
   final double height;
   const SpacingBox({
     super.key,
